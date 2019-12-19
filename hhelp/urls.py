@@ -19,4 +19,10 @@ from hhelpapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/test/', views.test),
+    path('api/register/', views.register),
+    path('api/getvercode/', views.getvercode),
+    path('api/login/', views.login),
+    path('api/is_register/', views.is_register)
+
 ]
