@@ -23,6 +23,8 @@ urlpatterns = [
     path('api/register/', views.register),
     path('api/getvercode/', views.getvercode),
     path('api/login/', views.login),
-    path('api/is_register/', views.is_register)
-
+    path('api/is_register/', views.is_register),
+    path('api/getBanList/', views.getBanList),
+    path('api/getSportList/', views.getSportList),
+    path('api/getDoctorList/', views.getDoctorList)
 ]

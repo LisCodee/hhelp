@@ -3,6 +3,7 @@ from hhelpapp import models
 from . import util
 import time
 import json
+from django.core import serializers
 
 """
 用户注册接口：
@@ -118,3 +119,72 @@ def is_register(request):
 
 def test(request):
     return JsonResponse({'status':'ok'})
+
+
+"""
+获取忌吃清单列表
+"""
+
+
+def getBanList(request):
+    response = {}
+    if request.method == "GET":
+        token = request.GET.get("token")
+        user = models.User.objects.filter(token=token)
+        if user is None:
+            response['err_code'] = 3
+            response['err_msg'] = '用户名或密码错误'
+            return JsonResponse(data=response)
+        else:
+            banList = models.ban.objects.filter()
+            banList = serializers.serialize("json", banList)
+            response['err_code'] = 0
+            response['err_msg'] = ''
+            response['data'] = banList
+    return JsonResponse(data=response)
+
+
+"""
+获取保健内容
+"""
+
+
+def getSportList(request):
+    response = {}
+    if request.method == "GET":
+        token = request.GET.get("token")
+        user = models.User.objects.filter(token=token)
+        if user is None:
+            response['err_code'] = 3
+            response['err_msg'] = '用户名或密码错误'
+            return JsonResponse(data=response)
+        else:
+            sportList = models.sport.objects.filter()
+            sportList = serializers.serialize("json", sportList)
+            response['err_code'] = 0
+            response['err_msg'] = ''
+            response['data'] = sportList
+    return JsonResponse(data=response)
+
+
+"""
+获取专家列表
+"""
+
+
+def getDoctorList(request):
+    response = {}
+    if request.method == "GET":
+        token = request.GET.get("token")
+        user = models.User.objects.filter(token=token)
+        if user is None:
+            response['err_code'] = 3
+            response['err_msg'] = '用户名或密码错误'
+            return JsonResponse(data=response)
+        else:
+            doctorList = models.User.objects.filter(is_doctor=0)
+            doctorList = serializers.serialize()
+            response['err_code'] = 0
+            response['err_msg'] = ''
+            response['data'] = doctorList
+    return JsonResponse(data=response)

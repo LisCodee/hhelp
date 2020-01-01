@@ -11,6 +11,7 @@ class User(models.Model):
     last_login = models.DateTimeField(verbose_name="最后登录时间", null=True)
     token = models.CharField(verbose_name="token", max_length=44, null=True)
     vercode = models.CharField(verbose_name="验证码", max_length=4, null=True)
+    # doctype = models.CharField(vercode="主治类别", max_length=30, null=True)
 
 
 # 忌吃清单

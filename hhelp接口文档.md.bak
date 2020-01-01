@@ -10,7 +10,6 @@
 |lastlogin|Date()|最后登录时间|
 |token|char(44)|token,唯一|
 |vercode|varchar(4)|验证码|
-|doctype|varchar(30)|主治类别|
 
 ## 忌吃清单(ban)
 |名称|类型|备注|
@@ -80,48 +79,9 @@
 - 返回示例：
     * {err_code:1, err_msg:'邮箱已被注册'}
 
-
-### 获取忌吃清单列表(/api/getBanList)
-
-- 请求方式：GET
-
-- 参数：
-
-  - token
-
-- 返回值：
-
-  - {err_code:0,err_msg:'',data:''}
-
+### 获取文章
     
-
-### 获取保健内容(/api/getSportList)
-
-- 请求内容：GET
-
-- 参数：
-    * token
-
-- 返回值：
-
-  - {err_code:0,err_msg:'',data:''}
-
-  
-
-### 获取专家列表(/api/getDoctorList)
-
-- 请求方式：GET
-
-- 请求参数：
-
-  - token
-
-- 返回值：
-
-  - {err_code:0,err_msg:'',data:''}
-
-
-
+### 
 ### 错误码规定
 |err_code|错误类型|err_msg|
 | ------ | ------ | ------ |
